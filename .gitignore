@@ -10,8 +10,9 @@ npm-debug.*
 web-build/
 web-report/
 
-# macOS
-.DS_Store
 yarn.lock
 .expo-shared
 package.lock.json
+
+# macOS
+.DS_Store
