@@ -19,33 +19,52 @@ export default StyleSheet.create({
     image: {
         width: 140,
         height: 90,
+        borderRadius: 16,
     },
 
-    headerTitle: {
-        color: '#fff',
-        fontWeight: 'bold',
-        fontSize: 28,
-        fontFamily: 'Roboto',
+    imageTitle: {
+        width: 190,
+        height: 28,
     },
 
     viewMessage: {
+        flex:1,
         backgroundColor: '#fff',
-        marginTop: 100,
-        paddingTop: 40,
-        paddingBottom: 40,
-        paddingHorizontal: 20,
+        marginTop: 30,
+        paddingTop: 30,
+        paddingBottom: 30,
+        paddingHorizontal: 30,
         borderRadius: 16,
+        justifyContent: "center",
+        alignItems: "center",
     },
 
     message: {
         color: "#000",
-        fontSize: 24,
+        fontSize: 21,
+        fontFamily: "Roboto",
+        textAlign: "center",
+    },
+
+    message2: {
+        color: "#000",
+        fontSize: 21,
+        fontFamily: "Roboto",
+        textAlign: "center",
+        paddingTop: 15,
+    },
+
+    linkSite: {
+        color: 'blue',
+        marginTop: 10,
+        fontSize: 18,
     },
 
     viewButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 120,
+        marginTop: 40,
+        marginBottom:40,
     },
 
     button: {
@@ -60,5 +79,6 @@ export default StyleSheet.create({
     buttonText: {
         fontWeight: 'bold',
         fontSize: 16,
+        fontFamily: 'Roboto',
     },
 });
