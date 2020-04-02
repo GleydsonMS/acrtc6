@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Image, Text,TouchableOpacity, FlatList, TextInput } from 'react-native';
+import { RadioButton } from 'react-native-paper';
 
 import logoImg from '../../assets/logo.png';
 import titleImg from '../../assets/dados.png';
@@ -31,7 +32,10 @@ export default function Person () {
                         </View>
                         <View style={styles.viewFormN}>
                             <Text style={styles.text}>Sexo </Text>
-                            
+                            <Text>M</Text>
+                            <RadioButton></RadioButton>
+                            <Text>F</Text>
+                            <RadioButton></RadioButton>
                         </View>
                         <View style={styles.viewFormN}>
                             <Text style={styles.text}>Idade </Text>
