@@ -63,13 +63,15 @@ export default StyleSheet.create({
         height: 40,
         borderRadius: 8,
         fontSize: 20,
+        paddingHorizontal: 10,
         backgroundColor: '#fff',
     },
 
     viewButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 40,
+        marginTop: 50,
+        paddingTop: 50,
         marginBottom:40,
     },
 
