@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, FlatList, TextInput } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
@@ -8,14 +8,41 @@ import styles from './styles';
 
 export default function Person () {
     const navigation = useNavigation();
+    const route = useRoute();
     const [pista, setPista] = useState('');
     const [voltas, setVoltas] = useState('');
     const [sobra, setSobra] = useState('');
+    //const [classificacao, setClassificacao] = useState('');
+    const classificacao = { acr: "" };
+    const dpt = (parseFloat(pista) * parseInt(voltas) ) + parseFloat(sobra);
+    const imc = parseFloat(route.params.data.peso) / (parseFloat(route.params.data.estatura) * parseFloat(route.params.data.estatura)); 
+    const vo2 = 41.946 + (0.022 * dpt) - (0.875 * imc) + (2.107 * parseInt(route.params.data.sexo));
 
-    function handleResults () {
-        const dataPista = { pista, voltas, sobra };
+    function calculate () {
+        const sexo = route.params.data.sexo;
 
-        navigation.navigate('Results', dataPista);
+        if (sexo==0) {
+            if(vo2<=38.7){
+                classificacao.acr = "ACR Insatisfatória";
+                
+            } else {
+                classificacao.acr = "ACR Satisfatória";
+                
+            }
+        } else {
+            if(vo2<=47.8){
+                classificacao.acr = "ACR Insatisfatória";
+                
+            } else {
+                classificacao.acr = "ACR Satisfatória";
+            }
+        }
+    }
+
+    function  handleResults () {
+        
+        calculate();
+        navigation.navigate('Results', { dpt, vo2, classificacao });
     }
 
     return(
@@ -68,7 +95,7 @@ export default function Person () {
                         <View style={styles.viewButton}>
                             <TouchableOpacity
                                 style={styles.button}
-                                onPress={handleResults}
+                                onPress={() => handleResults()}
                             >
                                 <Text style={styles.buttonText}>CALCULAR</Text>
                             </TouchableOpacity>

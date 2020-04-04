@@ -84,8 +84,9 @@ export default StyleSheet.create({
         flex:1,
         height: 40,
         borderRadius: 8,
-        fontSize: 20,
+        fontSize: 18,
         paddingHorizontal: 10,
+        paddingTop: 5,
         backgroundColor: '#fff',
         justifyContent: "center",
         alignContent: "center",
@@ -101,15 +102,20 @@ export default StyleSheet.create({
       borderRadius: 16,
       justifyContent: "center",
       alignItems: "center",
-      width: 300,
-      height: 150,
+    },
+
+    message: {
+      color: "#000",
+      fontSize: 21,
+      fontFamily: "Roboto",
+      textAlign: "center",
     },
 
     viewButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 30,
-        paddingTop: 30,
+        marginTop: 10,
+        paddingTop: 10,
         marginBottom:20,
     },
 

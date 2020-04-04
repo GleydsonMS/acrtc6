@@ -6,7 +6,6 @@ import { RadioButton } from 'react-native-paper';
 import logoImg from '../../assets/logo.png';
 import titleImg from '../../assets/dados.png';
 import styles from './styles';
-//import { TextInput } from 'react-native-gesture-handler';
 
 export default function Person () {
     const navigation = useNavigation();
@@ -16,10 +15,10 @@ export default function Person () {
     const [peso, setPeso] = useState('');
     const [estatura, setEstatura] = useState('');
 
-    function handlePerson () {
-        const data = { nome, sexo, idade, peso, estatura };
+    const data = { nome, sexo, idade, peso, estatura };
 
-        navigation.navigate('RunTest', data);
+    function handlePerson () {
+        navigation.navigate('RunTest', { data });
     }
 
     return(
@@ -98,7 +97,7 @@ export default function Person () {
                         <View style={styles.viewButton}>
                             <TouchableOpacity
                                 style={styles.button}
-                                onPress={handlePerson}
+                                onPress={() => handlePerson()}
                             >
                                 <Text style={styles.buttonText}>PRÓXIMO</Text>
                             </TouchableOpacity>

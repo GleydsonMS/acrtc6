@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, FlatList, TextInput } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
@@ -8,12 +8,12 @@ import styles from './styles';
 
 export default function Person () {
     const navigation = useNavigation();
-    const [distancia, setDistancia] = useState('');
-    const [vo2, setVo2] = useState('');
-    const [classificacao, setClassificacao] = useState('');
+    const route = useRoute();
+    const distancia = route.params.dpt;
+    const vo2 = route.params.vo2;
+    const classificacao = route.params.classificacao.acr;
 
     function navigateToMain () {
-        const dataResultado = { distancia, vo2, classificacao };
 
         navigation.navigate('Main');
     }
@@ -32,20 +32,25 @@ export default function Person () {
                     <View>
                         <View style={styles.viewForm}>
                             <Text style={styles.text}>Distância Percorrida Total</Text>
-                            <Text style={styles.textResult}></Text>
+                            <Text style={styles.textResult}>{distancia.toFixed(2)}</Text>
                         </View>
                         <View style={styles.viewFormN}>
                             <Text style={styles.text}>VO2</Text>
-                            <Text style={styles.textResult}></Text>
+                            <Text style={styles.textResult}>{vo2.toFixed(2)}</Text>
                         </View>
                         <View style={styles.viewFormN}>
                             <Text style={styles.text}>Classificação</Text>
-                            <Text style={styles.textResult}></Text>
+                            <Text style={styles.textResult}>{classificacao}</Text>
                         </View>
                         <View style={styles.viewContainer}>
                             <Text style={styles.textC}>CONDUTA</Text>
                             <View style={styles.viewMessage}>
-                                <Text>TEXTO PADRÃO</Text>
+                                <Text style={styles.message}>
+                                    Recomenda-se a prescrição de atividades físicas 
+                                    aeróbicas agradáveis e adequadas ao desenvolvimento, 
+                                    incluindo corrida, caminhada rápida, natação, dança 
+                                    e ciclismo. 
+                                </Text>
                             </View>
                         </View>
                         <View style={styles.viewButton}>

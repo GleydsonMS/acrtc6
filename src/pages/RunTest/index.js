@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { View, Image, Text, FlatList, TouchableOpacity } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
@@ -8,9 +8,11 @@ import styles from './styles';
 
 export default function RunTest () {
     const navigation = useNavigation();
+    const route = useRoute();
+    const  data  = route.params.data;
 
     function navigateToRunway() {
-        navigation.navigate('Runway');
+        navigation.navigate('Runway', { data });
     }
 
     return(
@@ -26,7 +28,6 @@ export default function RunTest () {
                 renderItem={() => (
                     <View>
                         <View style={styles.viewTimer}>
-                            <Text/>
                         </View>
                         <View style={styles.viewButton}>
                             <TouchableOpacity
