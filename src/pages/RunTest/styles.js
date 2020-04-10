@@ -55,7 +55,15 @@ export default StyleSheet.create({
         borderRadius: 16,
         justifyContent: "center",
         alignItems: "center",
+        height: 160,
     },
+
+    textMessage:{
+        fontWeight: 'bold',
+        fontSize: 32,
+        fontFamily: 'Roboto',
+        textAlign: 'center',
+    }, 
 
     viewButtonC: {
         flex: 1,

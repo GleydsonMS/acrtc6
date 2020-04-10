@@ -21,10 +21,17 @@ export default function RunTest () {
         seconds: ''
     });
 
+    const [message, setMessage] = useState({
+        messageAlert : '...',
+    });
+
     useEffect(() => {
         setTime({
             minutes : '06',
             seconds : '00'
+        });
+        setMessage({
+            messageAlert : '...',
         });
     }, []);
 
@@ -51,9 +58,24 @@ export default function RunTest () {
                 minutes : minutes.length === 1 ? '0'+minutes : minutes,
                 seconds : seconds.length === 1 ? '0'+seconds : seconds
             });
-            
-            if(minutes == 0 && seconds == 0) {
+
+            if (minutes == 4 && seconds == 0) {
+                setMessage({
+                    messageAlert : 'JÁ SE PASSARAM 2 MINUTOS!'
+                });
+            } else if(minutes == 2 && seconds == 0){
+                setMessage({
+                    messageAlert : 'FALTAM 2 MINUTOS!'
+                });
+            } else if(minutes == 1 && seconds == 0){
+                setMessage({
+                    messageAlert : 'FALTA 1 MINUTO!'
+                });
+            } else if(minutes == 0 && seconds == 0) {
                 clearInterval(countInterval);
+                setMessage({
+                    messageAlert : 'ACABOU, PERMANEÇA ONDE VOCÊ ESTÁ!'
+                });
             }
         }, 1000);
     }
@@ -92,7 +114,7 @@ export default function RunTest () {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.viewMessage}>
-                            <Text/>
+                            <Text style={styles.textMessage}>{message.messageAlert}</Text>
                         </View>
                         <View style={styles.viewButton}>
                             <TouchableOpacity
