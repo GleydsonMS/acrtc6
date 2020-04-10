@@ -39,6 +39,12 @@ export default StyleSheet.create({
         alignItems: "center",
     },
 
+    textTimer: {
+        fontWeight: 'bold',
+        fontSize: 48,
+        fontFamily: 'Roboto',
+    },
+
     viewMessage: {
         flex:1,
         backgroundColor: '#fff',
@@ -50,8 +56,19 @@ export default StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+
+    viewButtonC: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 40,
+        marginBottom:40,
+    },
     
     viewButton: {
+        flex: 1,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 40,
