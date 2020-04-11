@@ -50,12 +50,13 @@ export default StyleSheet.create({
         fontSize: 21,
         fontFamily: "Roboto",
         paddingTop: 15,
+        textAlign: 'justify',
     },
 
     viewButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 80,
+        marginTop: 40,
         marginBottom:40,
     },
 
