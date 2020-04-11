@@ -11,7 +11,7 @@ export default function Person() {
     const route = useRoute();
     const distance = route.params.dpt;
     const vo2 = route.params.vo2;
-    const classification = route.params.classification.acr;
+    const { acr } = route.params.classification;
 
     function navigateToMain() {
         navigation.navigate('Main');
@@ -35,7 +35,7 @@ export default function Person() {
                     </View>
                     <View style={styles.viewFormN}>
                         <Text style={styles.text}>Classificação</Text>
-                        <Text style={styles.textResult}>{classification}</Text>
+                        <Text style={styles.textResult}>{acr}</Text>
                     </View>
                     <View style={styles.viewContainer}>
                         <Text style={styles.textC}>CONDUTA</Text>
