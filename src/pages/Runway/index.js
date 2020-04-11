@@ -15,8 +15,8 @@ export default function Person () {
     //const [classificacao, setClassificacao] = useState('');
     const classificacao = { acr: "" };
     const dpt = (parseFloat(pista) * parseInt(voltas) ) + parseFloat(sobra);
-    const imc = parseFloat(route.params.data.peso) / (parseFloat(route.params.data.estatura) * parseFloat(route.params.data.estatura)); 
-    const vo2 = 41.946 + (0.022 * dpt) - (0.875 * imc) + (2.107 * parseInt(route.params.data.sexo));
+    const imc = (parseFloat(route.params.data.peso) / (parseFloat(route.params.data.estatura) * parseFloat(route.params.data.estatura))).toFixed(2); 
+    const vo2 = (41.946 + (0.022 * dpt) - (0.875 * imc) + (2.107 * parseInt(route.params.data.sexo))).toFixed(1);
 
     function calculate () {
         const sexo = route.params.data.sexo;

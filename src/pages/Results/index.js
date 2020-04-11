@@ -36,7 +36,7 @@ export default function Person () {
                         </View>
                         <View style={styles.viewFormN}>
                             <Text style={styles.text}>VO2</Text>
-                            <Text style={styles.textResult}>{vo2.toFixed(2)}</Text>
+                            <Text style={styles.textResult}>{vo2}</Text>
                         </View>
                         <View style={styles.viewFormN}>
                             <Text style={styles.text}>Classificação</Text>
