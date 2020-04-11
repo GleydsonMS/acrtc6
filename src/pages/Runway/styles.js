@@ -92,4 +92,10 @@ export default StyleSheet.create({
         fontSize: 16,
         fontFamily: 'Roboto',
     },
+    textError: {
+        textAlign: 'center',
+        color: '#b30000',
+        fontSize: 30,
+        fontWeight: 'bold'
+    },
 });

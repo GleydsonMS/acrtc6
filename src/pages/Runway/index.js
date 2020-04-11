@@ -21,6 +21,8 @@ export default function Person() {
 
     const sex = route.params.data.sex;
 
+    const [error, setError] = useState('');
+
     useEffect(() => {
         if (sex == 0) {
             if (vo2 <= 38.7) {
@@ -54,7 +56,12 @@ export default function Person() {
     }, [vo2]);
 
     function handleResults() {
-        navigation.navigate('Results', { dpt, vo2, classification });
+        if(way != '' && turns != '' && over != '') {
+            setError('');
+            navigation.navigate('Results', { dpt, vo2, classification });
+        } else {
+            setError('Preencha os todos campos necessários!');
+        }
     }
 
     return (
@@ -74,6 +81,7 @@ export default function Person() {
                             placeholderTextColor='#666'
                             autoCapitalize='none'
                             autoCorrect={false}
+                            keyboardType={'numeric'}
                             value={way}
                             onChangeText={setWay}
                         />
@@ -84,6 +92,7 @@ export default function Person() {
                             style={styles.textInput}
                             autoCapitalize='none'
                             autoCorrect={false}
+                            keyboardType={'numeric'}
                             value={turns}
                             onChangeText={setTurns}
                         />
@@ -96,6 +105,7 @@ export default function Person() {
                             placeholderTextColor='#666'
                             autoCapitalize='none'
                             autoCorrect={false}
+                            keyboardType={'numeric'}
                             value={over}
                             onChangeText={setOver}
                         />
@@ -108,6 +118,7 @@ export default function Person() {
                             <Text style={styles.buttonText}>CALCULAR</Text>
                         </TouchableOpacity>
                     </View>
+                    <Text style={styles.textError}>{error}</Text>
                 </View>
             </ScrollView>
         </View>
