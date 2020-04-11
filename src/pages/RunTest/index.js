@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { View, Image, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Image, Text, ScrollView, TouchableOpacity } from 'react-native';
 import moment from 'moment';
 
 import logoImg from '../../assets/logo.png';
 import titleImg from '../../assets/teste.png';
 import styles from './styles';
 
-export default function RunTest () {
+export default function RunTest() {
     const navigation = useNavigation();
     const route = useRoute();
     const data = route.params.data;
@@ -22,111 +22,110 @@ export default function RunTest () {
     });
 
     const [message, setMessage] = useState({
-        messageAlert : '...',
+        messageAlert: '...',
+        messageAlert2: '',
     });
 
     useEffect(() => {
         setTime({
-            minutes : '06',
-            seconds : '00'
+            minutes: '06',
+            seconds: '00'
         });
         setMessage({
-            messageAlert : '...',
+            messageAlert: '...',
         });
     }, []);
 
-    function startClock() {
-        const clock = moment();
-        let seconds = 0;
-        let minutes = 6;
+    function startClock(n) {
+        if (n == 0) {
+            const clock = moment();
+            let seconds = 0;
+            let minutes = 6;
 
-        clock
-            .add(seconds, 'seconds')
-            .add(minutes, 'minutes');
-        
-        const current = moment();
-        let diffTime = clock.unix() - current.unix();
-        let duration = moment.duration(diffTime * 1000, 'milliseconds');
-        const interval = 1000;
+            clock
+                .add(seconds, 'seconds')
+                .add(minutes, 'minutes');
 
-        countInterval = setInterval(() => {
-            duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
-            minutes = moment.duration(duration).minutes().toString();
-            seconds = moment.duration(duration).seconds().toString();
+            const current = moment();
+            let diffTime = clock.unix() - current.unix();
+            let duration = moment.duration(diffTime * 1000, 'milliseconds');
+            const interval = 1000;
 
-            setTime({
-                minutes : minutes.length === 1 ? '0'+minutes : minutes,
-                seconds : seconds.length === 1 ? '0'+seconds : seconds
-            });
+            countInterval = setInterval(() => {
+                duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+                minutes = moment.duration(duration).minutes().toString();
+                seconds = moment.duration(duration).seconds().toString();
 
-            if (minutes == 4 && seconds == 0) {
-                setMessage({
-                    messageAlert : 'JÁ SE PASSARAM 2 MINUTOS!'
+                setTime({
+                    minutes: minutes.length === 1 ? '0' + minutes : minutes,
+                    seconds: seconds.length === 1 ? '0' + seconds : seconds
                 });
-            } else if(minutes == 2 && seconds == 0){
-                setMessage({
-                    messageAlert : 'FALTAM 2 MINUTOS!'
-                });
-            } else if(minutes == 1 && seconds == 0){
-                setMessage({
-                    messageAlert : 'FALTA 1 MINUTO!'
-                });
-            } else if(minutes == 0 && seconds == 0) {
-                clearInterval(countInterval);
-                setMessage({
-                    messageAlert : 'ACABOU, PERMANEÇA ONDE VOCÊ ESTÁ!'
-                });
-            }
-        }, 1000);
+
+                if (minutes == 4 && seconds == 0) {
+                    setMessage({
+                        messageAlert: 'JÁ SE PASSARAM 2 MINUTOS!'
+                    });
+                } else if (minutes == 2 && seconds == 0) {
+                    setMessage({
+                        messageAlert: 'FALTAM 2 MINUTOS!'
+                    });
+                } else if (minutes == 1 && seconds == 0) {
+                    setMessage({
+                        messageAlert: '',
+                        messageAlert2: 'FALTA 1 MINUTO!',
+                    });
+                } else if (minutes == 0 && seconds == 0) {
+                    clearInterval(countInterval);
+                    setMessage({
+                        messageAlert: 'ACABOU, PERMANEÇA ONDE VOCÊ ESTÁ!',
+                        messageAlert2: '',
+                    });
+                }
+            }, 1000);
+        } else {
+            clearInterval(countInterval);
+        }
     }
 
-    function stopClock() {
-        clearInterval(countInterval);
-    }
-
-    return(
+    return (
         <View style={styles.container}>
             <View style={styles.header}>
                 <Image style={styles.image} source={logoImg} />
                 <Image style={styles.imageTitle} source={titleImg} />
             </View>
-            <FlatList
-                data={[1]}
-                keyExtractor={message => String(message)}
-                showsVerticalScrollIndicator={false}
-                renderItem={() => (
-                    <View>
-                        <View style={styles.viewTimer}>
-                            <Text style={styles.textTimer}>{time.minutes}:{time.seconds}</Text>
-                        </View>
-                        <View style={styles.viewButtonC}>
-                            <TouchableOpacity
-                                style={styles.button}
-                                onPress={() => stopClock()}
-                            >
-                                <Text style={styles.buttonText}>PARAR</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                style={styles.button}
-                                onPress={() => startClock()}
-                            >
-                                <Text style={styles.buttonText}>INICIAR</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.viewMessage}>
-                            <Text style={styles.textMessage}>{message.messageAlert}</Text>
-                        </View>
-                        <View style={styles.viewButton}>
-                            <TouchableOpacity
-                                style={styles.button}
-                                onPress={navigateToRunway}
-                            >
-                                <Text style={styles.buttonText}>PRÓXIMO</Text>
-                            </TouchableOpacity>
-                        </View>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                <View>
+                    <View style={styles.viewTimer}>
+                        <Text style={styles.textTimer}>{time.minutes}:{time.seconds}</Text>
                     </View>
-                )}
-            />
+                    <View style={styles.viewButtonC}>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={() => startClock(1)}
+                        >
+                            <Text style={styles.buttonText}>PARAR</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={() => startClock(0)}
+                        >
+                            <Text style={styles.buttonText}>INICIAR</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.viewMessage}>
+                        <Text style={styles.textMessage}>{message.messageAlert}</Text>
+                        <Text style={styles.textMessage2}>{message.messageAlert2}</Text>
+                    </View>
+                    <View style={styles.viewButton}>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={navigateToRunway}
+                        >
+                            <Text style={styles.buttonText}>PRÓXIMO</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </ScrollView>
         </View>
     );
 }

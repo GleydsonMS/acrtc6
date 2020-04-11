@@ -9,13 +9,13 @@ import styles from './styles';
 
 export default function Person() {
     const navigation = useNavigation();
-    const [nome, setNome] = useState('');
-    const [sexo, setSexo] = useState('');
-    const [idade, setIdade] = useState('');
-    const [peso, setPeso] = useState('');
-    const [estatura, setEstatura] = useState('');
+    const [name, setName] = useState('');
+    const [sex, setSex] = useState('');
+    const [age, setAge] = useState('');
+    const [weight, setWeight] = useState('');
+    const [height, setHeight] = useState('');
 
-    const data = { nome, sexo, idade, peso, estatura };
+    const data = { name, sex, age, weight, height };
 
     function handlePerson() {
         navigation.navigate('RunTest', { data });
@@ -35,8 +35,8 @@ export default function Person() {
                             style={styles.textInput}
                             autoCapitalize='none'
                             autoCorrect={false}
-                            value={nome}
-                            onChangeText={setNome}
+                            value={name}
+                            onChangeText={setName}
                         />
                     </View>
                     <View style={styles.viewFormN}>
@@ -45,15 +45,15 @@ export default function Person() {
                         <RadioButton
                             color="#fff"
                             value="1"
-                            status={sexo == '1' ? 'checked' : 'unchecked'}
-                            onPress={() => setSexo('1')}
+                            status={sex == '1' ? 'checked' : 'unchecked'}
+                            onPress={() => setSex('1')}
                         />
                         <Text style={styles.text}>F</Text>
                         <RadioButton
                             color="#fff"
                             value='0'
-                            status={sexo == '0' ? 'checked' : 'unchecked'}
-                            onPress={() => setSexo('0')}
+                            status={sex == '0' ? 'checked' : 'unchecked'}
+                            onPress={() => setSex('0')}
                         />
                     </View>
                     <View style={styles.viewFormN}>
@@ -62,8 +62,8 @@ export default function Person() {
                             style={styles.textInput}
                             autoCapitalize='none'
                             autoCorrect={false}
-                            value={idade}
-                            onChangeText={setIdade}
+                            value={age}
+                            onChangeText={setAge}
                         />
                     </View>
                     <View style={styles.viewFormN}>
@@ -74,8 +74,8 @@ export default function Person() {
                             placeholderTextColor='#666'
                             autoCapitalize='none'
                             autoCorrect={false}
-                            value={peso}
-                            onChangeText={setPeso}
+                            value={weight}
+                            onChangeText={setWeight}
                         />
                     </View>
                     <View style={styles.viewFormN}>
@@ -86,8 +86,8 @@ export default function Person() {
                             placeholderTextColor='#666'
                             autoCapitalize='none'
                             autoCorrect={false}
-                            value={estatura}
-                            onChangeText={setEstatura}
+                            value={height}
+                            onChangeText={setHeight}
                         />
                     </View>
                     <View style={styles.viewButton}>

@@ -73,8 +73,8 @@ export default StyleSheet.create({
     viewButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 50,
-        paddingTop: 50,
+        marginTop: 40,
+        paddingTop: 40,
         marginBottom:40,
     },
 

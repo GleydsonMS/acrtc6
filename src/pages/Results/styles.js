@@ -114,9 +114,9 @@ export default StyleSheet.create({
     viewButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 10,
-        paddingTop: 10,
-        marginBottom:20,
+        marginTop: 20,
+        paddingTop: 20,
+        marginBottom:40,
     },
 
     button: {

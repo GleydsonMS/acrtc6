@@ -55,7 +55,7 @@ export default StyleSheet.create({
         borderRadius: 16,
         justifyContent: "center",
         alignItems: "center",
-        height: 160,
+        height: 200,
     },
 
     textMessage:{
@@ -63,7 +63,15 @@ export default StyleSheet.create({
         fontSize: 32,
         fontFamily: 'Roboto',
         textAlign: 'center',
-    }, 
+    },
+    
+    textMessage2:{
+        fontWeight: 'bold',
+        fontSize: 32,
+        fontFamily: 'Roboto',
+        textAlign: 'center',
+        color: '#b30000',
+    },
 
     viewButtonC: {
         flex: 1,
