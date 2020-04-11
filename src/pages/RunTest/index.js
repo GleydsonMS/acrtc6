@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { View, Image, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Image, Text, ScrollView, TouchableOpacity, Vibration } from 'react-native';
 import moment from 'moment';
 
 import logoImg from '../../assets/logo.png';
@@ -65,21 +65,25 @@ export default function RunTest() {
                     setMessage({
                         messageAlert: 'JÁ SE PASSARAM 2 MINUTOS!'
                     });
+                    Vibration.vibrate(3000);
                 } else if (minutes == 2 && seconds == 0) {
                     setMessage({
                         messageAlert: 'FALTAM 2 MINUTOS!'
                     });
+                    Vibration.vibrate(3000);
                 } else if (minutes == 1 && seconds == 0) {
                     setMessage({
                         messageAlert: '',
                         messageAlert2: 'FALTA 1 MINUTO!',
                     });
+                    Vibration.vibrate(3000);
                 } else if (minutes == 0 && seconds == 0) {
                     clearInterval(countInterval);
                     setMessage({
                         messageAlert: 'ACABOU, PERMANEÇA ONDE VOCÊ ESTÁ!',
                         messageAlert2: '',
                     });
+                    Vibration.vibrate(3000);
                 }
             }, 1000);
         } else {
