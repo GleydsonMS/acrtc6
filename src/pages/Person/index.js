@@ -14,11 +14,18 @@ export default function Person() {
     const [age, setAge] = useState('');
     const [weight, setWeight] = useState('');
     const [height, setHeight] = useState('');
+    const [error, setError] = useState('');
 
     const data = { name, sex, age, weight, height };
 
     function handlePerson() {
-        navigation.navigate('RunTest', { data });
+        if(sex != '' && weight != '' && height != '') {
+            setError('');
+            navigation.navigate('RunTest', { data });
+        } else {
+            setError('Preencha os todos campos necessários!');
+        }
+        
     }
 
     return (
@@ -33,7 +40,7 @@ export default function Person() {
                         <Text style={styles.text}>Nome</Text>
                         <TextInput
                             style={styles.textInput}
-                            autoCapitalize='none'
+                            autoCapitalize='words'
                             autoCorrect={false}
                             value={name}
                             onChangeText={setName}
@@ -62,6 +69,7 @@ export default function Person() {
                             style={styles.textInput}
                             autoCapitalize='none'
                             autoCorrect={false}
+                            keyboardType={'numeric'}
                             value={age}
                             onChangeText={setAge}
                         />
@@ -74,6 +82,7 @@ export default function Person() {
                             placeholderTextColor='#666'
                             autoCapitalize='none'
                             autoCorrect={false}
+                            keyboardType={'numeric'}
                             value={weight}
                             onChangeText={setWeight}
                         />
@@ -86,6 +95,7 @@ export default function Person() {
                             placeholderTextColor='#666'
                             autoCapitalize='none'
                             autoCorrect={false}
+                            keyboardType={'numeric'}
                             value={height}
                             onChangeText={setHeight}
                         />
@@ -98,6 +108,7 @@ export default function Person() {
                             <Text style={styles.buttonText}>PRÓXIMO</Text>
                         </TouchableOpacity>
                     </View>
+                    <Text style={styles.textError}>{error}</Text>
                 </View>
             </ScrollView>
         </View>
