@@ -26,6 +26,8 @@ export default function RunTest() {
         messageAlert2: '',
     });
 
+    const [n, setN] = useState(1);
+
     useEffect(() => {
         setTime({
             minutes: '06',
@@ -34,64 +36,72 @@ export default function RunTest() {
         setMessage({
             messageAlert: '...',
         });
+        setN(1);
     }, []);
+
+    function clock() {
+        const clock = moment();
+        let seconds = 0;
+        let minutes = 6;
+
+        clock
+            .add(seconds, 'seconds')
+            .add(minutes, 'minutes');
+
+        const current = moment();
+        let diffTime = clock.unix() - current.unix();
+        let duration = moment.duration(diffTime * 1000, 'milliseconds');
+        const interval = 1000;
+
+        countInterval = setInterval(() => {
+            duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+            minutes = moment.duration(duration).minutes().toString();
+            seconds = moment.duration(duration).seconds().toString();
+
+            setTime({
+                minutes: minutes.length === 1 ? '0' + minutes : minutes,
+                seconds: seconds.length === 1 ? '0' + seconds : seconds
+            });
+
+            if (minutes == 4 && seconds == 0) {
+                setMessage({
+                    messageAlert: 'JÁ SE PASSARAM 2 MINUTOS!'
+                });
+                Vibration.vibrate(3000);
+            } else if (minutes == 2 && seconds == 0) {
+                setMessage({
+                    messageAlert: 'FALTAM 2 MINUTOS!'
+                });
+                Vibration.vibrate(3000);
+            } else if (minutes == 1 && seconds == 0) {
+                setMessage({
+                    messageAlert: '',
+                    messageAlert2: 'FALTA 1 MINUTO!',
+                });
+                Vibration.vibrate(3000);
+            } else if (minutes == 0 && seconds == 0) {
+                clearInterval(countInterval);
+                setMessage({
+                    messageAlert: 'ACABOU, PERMANEÇA ONDE VOCÊ ESTÁ!',
+                    messageAlert2: '',
+                });
+                Vibration.vibrate(3000);
+            }
+        }, 1000);
+    }
 
     function startClock(n) {
         setMessage({
             messageAlert: '...',
         });
-        clearInterval(countInterval);
         if (n == 0) {
-            const clock = moment();
-            let seconds = 0;
-            let minutes = 6;
-
-            clock
-                .add(seconds, 'seconds')
-                .add(minutes, 'minutes');
-
-            const current = moment();
-            let diffTime = clock.unix() - current.unix();
-            let duration = moment.duration(diffTime * 1000, 'milliseconds');
-            const interval = 1000;
-
-            countInterval = setInterval(() => {
-                duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
-                minutes = moment.duration(duration).minutes().toString();
-                seconds = moment.duration(duration).seconds().toString();
-
-                setTime({
-                    minutes: minutes.length === 1 ? '0' + minutes : minutes,
-                    seconds: seconds.length === 1 ? '0' + seconds : seconds
-                });
-
-                if (minutes == 4 && seconds == 0) {
-                    setMessage({
-                        messageAlert: 'JÁ SE PASSARAM 2 MINUTOS!'
-                    });
-                    Vibration.vibrate(3000);
-                } else if (minutes == 2 && seconds == 0) {
-                    setMessage({
-                        messageAlert: 'FALTAM 2 MINUTOS!'
-                    });
-                    Vibration.vibrate(3000);
-                } else if (minutes == 1 && seconds == 0) {
-                    setMessage({
-                        messageAlert: '',
-                        messageAlert2: 'FALTA 1 MINUTO!',
-                    });
-                    Vibration.vibrate(3000);
-                } else if (minutes == 0 && seconds == 0) {
-                    clearInterval(countInterval);
-                    setMessage({
-                        messageAlert: 'ACABOU, PERMANEÇA ONDE VOCÊ ESTÁ!',
-                        messageAlert2: '',
-                    });
-                    Vibration.vibrate(3000);
-                }
-            }, 1000);
-        } else {
             clearInterval(countInterval);
+        } else if (n == 1) {
+            setN(n+1);
+            clock();
+        } else if (n > 1) {
+            clearInterval(countInterval);
+            clock();
         }
     }
 
@@ -109,13 +119,13 @@ export default function RunTest() {
                     <View style={styles.viewButtonC}>
                         <TouchableOpacity
                             style={styles.button}
-                            onPress={() => startClock(1)}
+                            onPress={() => startClock(0)}
                         >
                             <Text style={styles.buttonText}>PARAR</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={styles.button}
-                            onPress={() => startClock(0)}
+                            onPress={() => startClock(n)}
                         >
                             <Text style={styles.buttonText}>INICIAR</Text>
                         </TouchableOpacity>
