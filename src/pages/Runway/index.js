@@ -13,10 +13,11 @@ export default function Person() {
     const [turns, setTurns] = useState('');
     const [over, setOver] = useState('');
     const [classification, setClassification] = useState({
-        acr: ''
+        acr: '',
+        message: '',
     });
-    const dpt = (parseFloat(way) * parseInt(turns)) + parseFloat(over);
-    const imc = (parseFloat(route.params.data.weight) / (parseFloat(route.params.data.height) * parseFloat(route.params.data.height))).toFixed(2);
+    const dpt = (parseFloat(way.replace(',','.')) * parseInt(turns)) + parseFloat(over.replace(',','.'));
+    const imc = (parseFloat(route.params.data.weight.replace(',','.')) / (parseFloat(route.params.data.height.replace(',','.')) * parseFloat(route.params.data.height.replace(',','.')))).toFixed(2);
     const vo2 = (41.946 + (0.022 * dpt) - (0.875 * imc) + (2.107 * parseInt(route.params.data.sex))).toFixed(1);
 
     const sex = route.params.data.sex;
@@ -27,29 +28,35 @@ export default function Person() {
         if (sex == 0) {
             if (vo2 <= 38.7) {
                 setClassification({
-                    acr: "ACR Insatisfatória"
+                    acr: "ACR Insatisfatória",
+                    message: "Baixos níveis de ACR aumentam o risco para o desenvolvimento de doenças cardiovasculares e metabólicas. É importante promover a melhoria destes níveis com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 });
             } else if (vo2 > 38.7) {
                 setClassification({
-                    acr: "ACR Satisfatória"
+                    acr: "ACR Satisfatória",
+                    message: "Bons níveis de ACR estão associados com melhores condições de saúde e com melhor aproveitamento escolar. É importante manter o condicionamento com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 })
             } else {
                 setClassification({
-                    acr: ""
+                    acr: "",
+                    message: "",
                 });
             }
         } else {
             if (vo2 <= 47.8) {
                 setClassification({
-                    acr: "ACR Insatisfatória"
+                    acr: "ACR Insatisfatória",
+                    message: "Baixos níveis de ACR aumentam o risco para o desenvolvimento de doenças cardiovasculares e metabólicas. É importante promover a melhoria destes níveis com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 });
             } else if (vo2 > 47.8) {
                 setClassification({
-                    acr: "ACR Satisfatória"
+                    acr: "ACR Satisfatória",
+                    message: "Bons níveis de ACR estão associados com melhores condições de saúde e com melhor aproveitamento escolar. É importante manter o condicionamento com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 });
             } else {
                 setClassification({
-                    acr: ""
+                    acr: "",
+                    message: "",
                 });
             }
         }

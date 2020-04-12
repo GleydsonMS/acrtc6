@@ -37,6 +37,10 @@ export default function RunTest() {
     }, []);
 
     function startClock(n) {
+        setMessage({
+            messageAlert: '...',
+        });
+        clearInterval(countInterval);
         if (n == 0) {
             const clock = moment();
             let seconds = 0;

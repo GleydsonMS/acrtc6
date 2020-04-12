@@ -108,7 +108,7 @@ export default StyleSheet.create({
       color: "#000",
       fontSize: 21,
       fontFamily: "Roboto",
-      textAlign: "center",
+      textAlign: "justify",
     },
 
     viewButton: {

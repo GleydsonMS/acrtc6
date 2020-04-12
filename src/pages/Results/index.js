@@ -12,6 +12,7 @@ export default function Person() {
     const distance = route.params.dpt;
     const vo2 = route.params.vo2;
     const { acr } = route.params.classification;
+    const { message } = route.params.classification;
 
     function navigateToMain() {
         navigation.navigate('Main');
@@ -27,7 +28,7 @@ export default function Person() {
                 <View>
                     <View style={styles.viewForm}>
                         <Text style={styles.text}>Distância Percorrida Total</Text>
-                        <Text style={styles.textResult}>{distance.toFixed(2)}</Text>
+                        <Text style={styles.textResult}>{distance.toFixed(1)}</Text>
                     </View>
                     <View style={styles.viewFormN}>
                         <Text style={styles.text}>VO2</Text>
@@ -41,10 +42,7 @@ export default function Person() {
                         <Text style={styles.textC}>CONDUTA</Text>
                         <View style={styles.viewMessage}>
                             <Text style={styles.message}>
-                                Recomenda-se a prescrição de atividades físicas
-                                aeróbicas agradáveis e adequadas ao desenvolvimento,
-                                incluindo corrida, caminhada rápida, natação, dança
-                                e ciclismo.
+                                {message}
                                 </Text>
                         </View>
                     </View>
