@@ -27,7 +27,7 @@ export default function Main() {
                             de aptidão cardiorrespiratória de pessoas entre 10 e 14 anos.
                             </Text>
                         <Text style={styles.message2}>
-                            O objetivo é calcular o VO2máximo de forma indireta utilizando
+                            O objetivo é calcular o VO2 máximo de forma indireta utilizando
                             o teste de corrida de 6 minutos (TC6).
                             </Text>
                         <Text style={styles.message2}>

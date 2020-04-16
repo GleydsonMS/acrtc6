@@ -36,15 +36,15 @@ export default function Person() {
                             possível, evitando piques de velocidade intercalados
                             por longas caminhadas. Durante o teste, o aplicativo
                             vai lhe informar a passagem do tempo 2, 4 e 5
-                            (“Atenção: falta 1 minuto). Ao final do teste
-                            soará um sinal (apito) sendo que os participantes
+                            (“Atenção: falta 1 minuto). Ao final do teste,
+                            toca-se o apito, sendo que os participantes
                             deverão interromper a corrida, permanecendo no
                             lugar onde estavam (no momento do apito) até ser
                             registrada a distância percorrida.
                             </Text>
                         <Text style={styles.message2}>
                             Os resultados serão registrados no aplicativo
-                            em metros com uma casa após a vírgula.
+                            em metros com uma casa decimal após a vírgula.
                             </Text>
                     </View>
                     <View style={styles.viewButton}>

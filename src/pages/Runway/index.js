@@ -29,12 +29,12 @@ export default function Person() {
             if (vo2 <= 38.7) {
                 setClassification({
                     acr: "ACR Insatisfatória",
-                    message: "Baixos níveis de ACR aumentam o risco para o desenvolvimento de doenças cardiovasculares e metabólicas. É importante promover a melhoria destes níveis com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
+                    message: "Baixos níveis de ACR aumentam o risco para o desenvolvimento de doenças cardiovasculares e metabólicas. É importante promover a melhoria destes níveis com a prática de exercícios físicos. O Colégio Americano de Medicina Esportiva (ACSM) recomenda o exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 });
             } else if (vo2 > 38.7) {
                 setClassification({
                     acr: "ACR Satisfatória",
-                    message: "Bons níveis de ACR estão associados com melhores condições de saúde e com melhor aproveitamento escolar. É importante manter o condicionamento com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
+                    message: "Bons níveis de ACR estão associados com melhores condições de saúde e com melhor aproveitamento escolar. É importante manter o condicionamento com a prática de exercícios físicos. O Colégio Americano de Medicina Esportiva (ACSM) recomenda o exercício  aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 })
             } else {
                 setClassification({
@@ -46,12 +46,12 @@ export default function Person() {
             if (vo2 <= 47.8) {
                 setClassification({
                     acr: "ACR Insatisfatória",
-                    message: "Baixos níveis de ACR aumentam o risco para o desenvolvimento de doenças cardiovasculares e metabólicas. É importante promover a melhoria destes níveis com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
+                    message: "Baixos níveis de ACR aumentam o risco para o desenvolvimento de doenças cardiovasculares e metabólicas. É importante promover a melhoria destes níveis com a prática de exercícios físicos. O Colégio Americano de Medicina Esportiva (ACSM) recomenda o exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 });
             } else if (vo2 > 47.8) {
                 setClassification({
                     acr: "ACR Satisfatória",
-                    message: "Bons níveis de ACR estão associados com melhores condições de saúde e com melhor aproveitamento escolar. É importante manter o condicionamento com a prática de exercícios físicos. Recomenda-se exercício aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas agradáveis e adequadas ao desenvolvimento, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
+                    message: "Bons níveis de ACR estão associados com melhores condições de saúde e com melhor aproveitamento escolar. É importante manter o condicionamento com a prática de exercícios físicos. O Colégio Americano de Medicina Esportiva (ACSM) recomenda o exercício  aeróbico de intensidade moderada a vigorosa, pelo menos 3 vezes por semana. Incentivar a prática de atividades físicas aeróbicas, incluindo corrida, caminhada rápida, natação, dança e ciclismo.",
                 });
             } else {
                 setClassification({
