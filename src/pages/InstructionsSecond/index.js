@@ -24,27 +24,38 @@ export default function Person() {
                         <Text style={styles.message}>
                             Orientações para o TC6
                             </Text>
+
                         <Text style={styles.message2}>
-                            Material: Local plano com marcação do perímetro da pista.
-                            Trena métrica. Apito.
+                            1.  Materiais: local plano com marcação do perímetro da pista, 
+                            trena métrica e apito.
                             </Text>
+
                         <Text style={styles.message2}>
-                            Orientação: Divide‐se os participantes em grupos
-                            adequados às dimensões da pista. Informa‐se aos
-                            participantes sobre a execução do testes dando
-                            ênfase ao fato de que devem correr o maior tempo
-                            possível, evitando piques de velocidade intercalados
-                            por longas caminhadas. Durante o teste, o aplicativo
-                            vai lhe informar a passagem do tempo 2, 4 e 5
-                            (“Atenção: falta 1 minuto). Ao final do teste,
-                            toca-se o apito, sendo que os participantes
-                            deverão interromper a corrida, permanecendo no
-                            lugar onde estavam (no momento do apito) até ser
-                            registrada a distância percorrida.
+                            2. Divide‐se os participantes em grupos adequados às dimensões da 
+                            pista. 
                             </Text>
+
                         <Text style={styles.message2}>
-                            Os resultados serão registrados no aplicativo
-                            em metros com uma casa decimal após a vírgula.
+                            3. Informa‐se aos participantes sobre a execução do testes dando ênfase 
+                            ao fato de que devem correr o maior tempo possível, evitando piques de 
+                            velocidade intercalados por longas caminhadas. 
+                            </Text>
+
+                        <Text style={styles.message2}>
+                            4. Durante o teste, o aplicativo vai informar a passagem do 
+                            tempo 2, 4 e 5 (“Atenção: falta 1 minuto).
+                            </Text>
+                        
+                        <Text style={styles.message2}>
+                            5. Ao final do teste, toca-se o apito, sendo que os 
+                            participantes deverão interromper a corrida, permanecendo no 
+                            lugar onde estavam (no momento do apito) até ser registrada a 
+                            distância percorrida. 
+                            </Text>
+
+                        <Text style={styles.message2}>
+                            6. Os resultados devem ser inseridos no aplicativo em metros, 
+                            com uma casa decimal após a vírgula. 
                             </Text>
                     </View>
                     <View style={styles.viewButton}>

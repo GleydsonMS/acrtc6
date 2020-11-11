@@ -32,7 +32,8 @@ export default function Person() {
                     </View>
                     <View style={styles.viewFormN}>
                         <Text style={styles.text}>VO2</Text>
-                        <Text style={styles.textResult}>{vo2}</Text>
+                        <Text style={styles.textResultV}>{vo2}</Text>
+                        <Text style={styles.textN}>ml/kg/min</Text>
                     </View>
                     <View style={styles.viewFormN}>
                         <Text style={styles.text}>Classificação</Text>

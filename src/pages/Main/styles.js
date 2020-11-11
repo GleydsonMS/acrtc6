@@ -54,10 +54,24 @@ export default StyleSheet.create({
         paddingTop: 15,
     },
 
+    message3: {
+        color: "#000",
+        fontSize: 30,
+        fontFamily: "Roboto",  
+        textAlign: "left",
+        paddingTop: 15,
+        marginRight: 118,
+    },
+
+    message4: {
+        color: "#000",
+        fontFamily: "Roboto",
+        marginTop: 10,
+        fontSize: 12,
+    },
+
     linkSite: {
         color: 'blue',
-        marginTop: 10,
-        fontSize: 18,
     },
 
     viewButton: {

@@ -69,6 +69,15 @@ export default StyleSheet.create({
         textAlign: "center",
     },
 
+    textN: {
+        flex:1,
+        flexDirection: "row",
+        color: "#fff",
+        fontSize: 20,
+        fontFamily: "Roboto",
+        textAlign: "center",
+    },
+
     textC: {
       flex:1,
       flexDirection: "row",
@@ -78,9 +87,21 @@ export default StyleSheet.create({
       fontFamily: "Roboto",
       paddingRight: 15,
       textAlign: "center",
-  },
+    },
 
     textResult: {
+        flex:1,
+        height: 40,
+        borderRadius: 8,
+        fontSize: 18,
+        paddingHorizontal: 10,
+        paddingTop: 5,
+        backgroundColor: '#fff',
+        justifyContent: "center",
+        alignContent: "center",
+    },
+
+    textResultV: {
         flex:1,
         height: 40,
         borderRadius: 8,
