@@ -23,7 +23,7 @@ export default function Main() {
                 <View>
                     <View style={styles.viewMessage}>
                         <Text style={styles.message}>
-                            Esta é uma ferramenta para lhe auxiliar na avaliação dos níveis
+                            Esta é uma ferramenta para auxiliar na avaliação dos níveis
                             de aptidão cardiorrespiratória de pessoas entre 10 e 14 anos.
                             </Text>
                         
@@ -32,9 +32,7 @@ export default function Main() {
                             o teste de corrida de 6 minutos (TC6).
                             </Text>
                         
-                        <Text style={styles.message3}>
-                            Referências:            
-                            </Text>
+                        <Text style={styles.message3}>Referências:</Text>
                         
                         <Text style={styles.message4}>
                             ACSM. Diretrizes do ACSM para os testes de esforço e sua prescrição. American College of Sports Medicine; tradução Dilza Balteiro Pereira de Campos. – 9. ed. – Rio de Janeiro: Guanabara, 2014.

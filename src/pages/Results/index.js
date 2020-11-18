@@ -30,8 +30,8 @@ export default function Person() {
                         <Text style={styles.text}>Distância Percorrida Total</Text>
                         <Text style={styles.textResult}>{distance.toFixed(1)}</Text>
                     </View>
-                    <View style={styles.viewFormN}>
-                        <Text style={styles.text}>VO2</Text>
+                    <View style={styles.viewFormNV}>
+                        <Text style={styles.text2}>VO2</Text>
                         <Text style={styles.textResultV}>{vo2}</Text>
                         <Text style={styles.textN}>ml/kg/min</Text>
                     </View>

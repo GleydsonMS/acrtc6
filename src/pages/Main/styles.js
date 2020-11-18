@@ -60,7 +60,7 @@ export default StyleSheet.create({
         fontFamily: "Roboto",  
         textAlign: "left",
         paddingTop: 15,
-        marginRight: 118,
+        marginRight: "40%",
     },
 
     message4: {

@@ -49,6 +49,17 @@ export default StyleSheet.create({
         flexDirection: 'row',
     },
 
+    viewFormNV: {
+        flex:1,
+        marginTop: 10,
+        paddingTop: 10,
+        paddingBottom: 0,
+        paddingHorizontal: 5,
+        justifyContent: "space-between",
+        alignItems: "center",
+        flexDirection: 'row',
+    },
+
     viewContainer: {
         flex:1,
         marginTop: 10,
@@ -69,11 +80,22 @@ export default StyleSheet.create({
         textAlign: "center",
     },
 
+    text2: {
+        flex:1,
+        flexDirection: "row",
+        color: "#fff",
+        fontWeight: "bold",
+        fontSize: 20,
+        fontFamily: "Roboto",
+        paddingRight: 88,
+        textAlign: "right",
+    },
+
     textN: {
         flex:1,
         flexDirection: "row",
         color: "#fff",
-        fontSize: 20,
+        fontSize: 14,
         fontFamily: "Roboto",
         textAlign: "center",
     },
